@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>瀑布流</title>
+</head>
+
+<body>
+<style>
+*{ 
+	margin:0; 
+	padding:0;
+}	
+.waterfall_item{
+	border:solid 3px #ccc;
+	box-shadow:1px 1px 3px #eee;
+	border-radius:8px;
+	font:normal 12px/22px 'Microsoft yahei';
+	text-align: center;
+	padding: 20px 0;
+	overflow: hidden;
+}
+</style>
+
+
+<script>
+/**
+	瀑布流
+	分析：
+		瀑布流主要解决各个列的各元素的位置，以及各列的高度问题
+*/
+/**
+	瀑布流
+	分析：		
+		瀑布流主要解决各个列的各元素的位置，以及各列的高度问题
+	确定一行有几列，每个元素之间的间隔大小。
+	获取各元素的高度，添加到面板，并确定每列的高度
+	属性：
+		panel//画板
+		items//要加载的项目
+		colNum//列数
+		col=[]//列数组
+		colLeft// 左间距
+		colTop// 上间距
+	方法:
+		init//初始化
+		refresh//刷新
+		setColNum//设置列数
+		setColLeft//设置左间距
+		setColTop//设置上间距
+		paint//添加到外框
+		refreshPanel//更新外部画板
+		
+*/
+function getStyle(o,name){
+	if(document.defaultView&&document.defaultView.getComputedStyle)
+		return document.defaultView.getComputedStyle(o,null)[name];
+	else
+		return o.currentStyle[name];
+}
+function waterfall(opts){
+	this.init(opts);	
+}
+waterfall.prototype={
+	constructor:waterfall,
+	init:function(opts){
+		this.panel=opts.panel||document.body;//画板
+		this.items=opts.items||[];//要加载的项目
+		this.colNum=opts.colNum||3;//列数
+		this.colLeft=opts.colLeft||5;//左间距
+		this.colTop=opts.colTop||5;// 上间距
+		this._updated=false;
+		this.col=[];
+		this.initCol();
+		this.newItems=this.items;
+		this.draw(this.newItems);
+	},
+	initCol:function(){
+		//初始化列数组
+		for(var i=0,len=this.colNum;i<len;i++){
+			this.col[i]={
+				height:0,//高度
+				itemNum:0,//项目数
+				idx:i,
+				count:0
+			}
+		}		
+	},
+	refresh:function(type){
+		var items;
+		if(this._updated){
+			if(type!=='append'){
+				this.initCol();
+				this.panel.innerHTML='';
+				items=this.items;
+			}else{
+				items=this.newItems;	
+			}
+			this.draw(items);
+		}
+	},
+	_setUpdate:function(updated){
+		if(this._updated!=updated){
+			this._updated=updated;
+		}
+	},
+	setColNum:function(num){
+		if(num==this.colNum)return;
+		this._setUpdate(true);
+		this.colNum=num;
+	},
+	setColLeft:function(leftSpan){
+		this._setUpdate(true);
+		this.colLeft=leftSpan;
+	},
+	setColTop:function(topSpan){
+		this._setUpdate(true);
+		this.colLeft=leftSpan;	
+	},
+	addItems:function(items){
+		this._setUpdate(true);
+		this.items=this.items.concat(items);
+		this.newItems=items;
+	},
+	draw:function(items){
+		var that=this,
+			i=0,
+			p=this.panel,
+			len=items.length;
+		for(;i<len;i++){
+			var r=Math.floor(i/this.colNum);
+			var w=parseInt(getStyle(p,'width'))/this.colNum-this.colLeft;			
+			var curCol=this.getMinHeightCol();
+			var c=curCol.idx;
+			var t=curCol.height+this.colTop;
+			var l=c*(w+this.colLeft)+this.colLeft;		
+			var oitem=this.createItem(w,l,t,items[i]);
+			p.appendChild(oitem);
+			var itemH=oitem.offsetHeight;
+			curCol.height=curCol.height+itemH+this.colTop;
+			curCol.count++;
+			p.style.height=curCol.height+'px';
+		}
+	},
+	createItem:function(w,l,t,html){
+		var oitem=document.createElement('div');
+		oitem.innerHTML=html;
+		oitem=oitem.firstChild;
+		oitem.style.position='absolute';
+		oitem.style.width=w+'px';
+		oitem.style.left=l+'px';
+		oitem.style.top=t+'px';
+		return oitem;
+	},
+	getMinHeightCol:function(){
+		var idx=0,minner=this.col[idx].height;
+		for(var i=0,len=this.colNum;i<len;i++){			
+			if(minner>this.col[i].height){				
+				minner=this.col[i].height;
+				idx=i;	
+						
+			}					
+		}
+		return this.col[idx];
+	}
+}
+
+</script>
+<div style="margin:0 auto">列：<input type="text" value='3' id="col_num" /><button id="refresh">刷新</button></div>
+<div id="response_flow" class="response_flow"  style="width:1000px;position:relative;">
+	
+</div>
+<script>
+//测试用例
+var items=[
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		    "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' style='height:100px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='1.jpg' height='200' style='height:200px;' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>"
+		  ]
+var colNum;
+var refreshBtn=document.getElementById('refresh');
+
+var panel=document.getElementById('response_flow');
+
+var flow=new waterfall({
+					   panel:panel,
+					   items:items,
+					   colLeft:20,
+					   topLeft:20
+					  })
+//追加
+var newItems=[
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='100' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'><img src='http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/1.jpg' height='200' /><br />asdfasdfasdf</div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>",
+		   "<div class='waterfall_item'>asdfasdfasdf<br />asdfasdfasdf<br /></div>" 
+];
+
+
+refreshBtn.onclick=function(){
+	colNum=document.getElementById('col_num').value;
+	flow.setColNum(colNum);
+	flow.refresh();
+}
+var toop=200;
+var loadNum=1;
+var maxNum=5;
+var originTop=document.body.scrollHeight-document.documentElement.clientHeight;
+window.onscroll=function(){
+	var to=document.body.scrollTop;
+	if(loadNum>maxNum)return;
+	if(to>loadNum*toop){
+		loadNum++;
+		flow.addItems(newItems)
+		flow.refresh('append')
+	}
+}
+window.onresize=function(){
+	flow._setUpdate(true);
+	flow.refresh();	
+}
+
+</script>
+</body>
+</html>

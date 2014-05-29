@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+	*{ margin:0 ; padding: 0;}
+	.phrase_wrap,
+	.phrase_list{ 
+		width: 200px;
+		height: 200px;		
+	}
+	.phrase_wrap{
+		position:relative;
+		overflow: hidden;
+		margin: 20px auto;
+	}
+	.phrase_list{
+		overflow:auto;		
+	}
+	.phrase_panel,
+	.phrase_list dt{
+		padding: 0 4px;
+		height: 24px;
+		background:#066;
+		color: #fff;
+		font: bold 14px/24px SimSun;
+	}
+	.phrase_panel{
+		width: 175px;
+		position:absolute;
+		
+		
+		display: none;
+	}
+</style>
+</head>
+
+<body>
+
+<div class="phrase_wrap" id="phrase_wrap">
+	<div class="phrase_panel" id="phrase_panel"></div>
+	<dl id="phrase_list" class="phrase_list">
+    	<dt>A</dt>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dt>B</dt>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dt>C</dt>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dt>D</dt>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dt>A</dt>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dd>a1</dd>
+        <dt>B</dt>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dd>b2</dd>
+        <dt>C</dt>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dd>c3</dd>
+        <dt>D</dt>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+        <dd>d4</dd>
+    </dl>   
+</div>
+
+<script>
+	/**
+		实现滚动下面条码的时候，对应的导航标题，在顶端显示。
+		分析：
+			1、首先要得到所有标题列表的坐标。
+			2、设置显示面板的内容。
+		步骤：
+			1、获取标题列表集合，并获取对应的坐标值。
+			2、设置显示面板内容并记录当前列表集合的索引。
+	*/
+	
+	/**
+		实现滚动下面条码的时候，对应的导航标题，在顶端显示。
+		分析：
+			1、首先要得到所有标题列表的坐标。
+			2、设置显示面板的内容。
+		步骤：
+			1、获取标题列表集合，并获取对应的坐标值。
+			
+			var phraseHeadList=[]
+			var phraseHead={title:'',x:0,y:0}//标题，坐标
+			
+			2、设置显示面板内容并记录当前列表集合的索引。
+			var phrasePanel={title:'',curHeadIndex:0};
+	*/
+	
+	/**
+		实现滚动下面条码的时候，对应的导航标题，在顶端显示。
+		分析：
+			1、首先要得到所有标题列表的坐标。
+			2、设置显示面板的内容。
+		步骤：
+			1、获取标题列表集合，并获取对应的坐标值。
+			
+			var phraseHeadList=[]
+			var phraseHead={title:'',x:0,y:0}//标题，坐标
+			
+			2、设置显示面板内容并记录当前列表集合的索引。
+			var phrasePanel={title:'',curHeadIndex:0};
+			
+			3、定位显示面板，并显示当前的标题
+			setPanel(index);
+	*/
+	//获取标题列表集合，并获取对应的坐标值。
+	var phraseList=document.getElementById("phrase_list");
+	var phraseListTop=phraseList.offsetTop;
+	var dts=phraseList.getElementsByTagName('dt');
+	var phraseHeadList=[];
+	var phraseHead={title:'',x:0,y:0}//标题，坐标
+	
+	for(var i=0,len=dts.length;i<len;i++){
+		phraseHead={
+			title:dts[i].innerHTML,
+			x:dts[i].offsetLeft,
+			y:dts[i].offsetTop-phraseListTop
+		}	
+		phraseHeadList.push(phraseHead);
+	}
+	
+	//设置显示面板内容并记录当前列表集合的索引。
+	var phrasePanel=document.getElementById('phrase_panel')
+
+	//监听
+	var phraseWrap=document.getElementById("phrase_wrap");
+	phraseList.onscroll=function(e){
+		var scrollTop=this.scrollTop;
+
+		var idx=getPhraseHeadIndex(scrollTop);
+		var nextIdx=idx+1;
+		var len=phraseHeadList.length;
+		//后一个的值和探测值比较
+		var probeH=dts[0].offsetHeight;		
+		var diffTop=phraseHeadList[nextIdx].y-scrollTop;
+		if(diffTop<probeH){
+			phrasePanel.style.top=diffTop-probeH+'px';			
+		}
+		setPanel(idx);
+		//纠错
+
+		
+	}
+	//搜索获取当前索引
+	function getPhraseHeadIndex(top){
+		var idx=0;		
+		for(var i=0,len=phraseHeadList.length;i<len;i++){			
+			if(phraseHeadList[i].y<top){
+				idx=i;
+			}
+			if(phraseHeadList[i].y>top){
+				break;
+			}
+		}
+		return idx;
+	}
+	//设置浮动条
+	function setPanel(index){
+		if(phrasePanel.index==index)return;
+		phrasePanel.index=index;
+		phrasePanel.style.display='block';
+		phrasePanel.style.top=0;				
+		phrasePanel.innerHTML=phraseHeadList[index].title	
+	}
+	
+	//初始化
+	setPanel(0)
+	
+</script>
+</body>
+</html>
