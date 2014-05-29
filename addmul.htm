@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>电商数量加减</title>
+</head>
+
+<body>
+数量：<input type="button" id="numMul10" value="-10"><input type="button" id="numMul" value="-1"><input type="text" id="num" value="1"><input type="button" id="numAdd" value="+1"><input type="button" id="numAdd10" value="+10"><input type="button" id="numAdd100" value="+100">
+<script>
+	var addBtn=document.getElementById('numAdd');
+	var mulBtn=document.getElementById('numMul');
+	var add10Btn=document.getElementById('numAdd10');
+	var mul10Btn=document.getElementById('numMul10');
+	var add100Btn=document.getElementById('numAdd100');
+	var num=document.getElementById('num');
+	
+	
+	
+	
+	
+	
+	var rnum=/^\d+$/;
+	var timeInterval=null;
+	var numTime=100;
+	
+	//操作表
+	var optionSetting={
+		n:0,
+		opt:null,
+		add:function(){optionSetting.n++;},
+		mul:function(){optionSetting.n--;}	,
+		add10:function(){optionSetting.n+=10;},
+		add100:function(){optionSetting.n+=100;},
+		mul10:function(){if(optionSetting.n<10)return;optionSetting.n-=10;}
+	}
+	//
+	function optNum(action){
+		num.value=rnum.test(num.value)?num.value:0;	
+		var val=+num.value;
+		optionSetting.n=val;		
+		optionSetting[action]();		
+		if(optionSetting.n<0){
+			optionSetting.n=0;	
+			timeInterval&&clearInterval(timeInterval);
+		}
+		num.value=optionSetting.n;
+	}
+	
+	
+	var bTime;
+	function startTime(action){
+		//如果过快则直接执行				
+		bTime=+new Date;
+		optionSetting.opt=action;
+		timeInterval&&clearInterval(timeInterval);
+		timeInterval=setInterval(function(){
+			optNum(action);
+		},numTime);		
+	}
+	function endTime(){
+		timeInterval&&clearInterval(timeInterval);
+		if((+new Date)-bTime<numTime){
+			optNum(optionSetting.opt);
+		}			
+	}
+	
+	
+	
+
+	//鼠标放下不起来	
+	addBtn.onmousedown=function(){
+		startTime('add')			
+	}
+	mulBtn.onmousedown=function(){
+		startTime('mul')		
+	}
+	add10Btn.onmousedown=function(){
+		startTime('add10')	
+	}
+	
+	mul10Btn.onmousedown=function(){
+		startTime('mul10')	
+	}
+	add100Btn.onmousedown=function(){
+		startTime('add100')	
+	}
+	
+	add100Btn.onmouseup=mulBtn.onmouseup=addBtn.onmouseup=add10Btn.onmouseup=mul10Btn.onmouseup=function(){
+		endTime();
+	}
+</script>
+</body>
+</html>
