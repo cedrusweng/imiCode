@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style></style>
+<script>
+//扩展
+	var inherit=function(targetObj,sourceObj){
+		if(sourceObj&&typeof sourceObj==="object"){
+			for(var name in sourceObj){
+				if(name in targetObj){
+					targetObj[name]=sourceObj[name];
+				}
+			}	
+		}
+		return targetObj;
+	}
+	//Dom获取
+	var $_id=function(id){
+		return document.getElementById(id)||id;
+	}
+	
+	//computeStyle
+	var $_computeStyle=function(o,attr,isNum){
+		var resValue;
+		if(o.currentStyle){
+			resValue=o.currentStyle[attr];	
+		}else if(document.defaultView.getComputedStyle){
+			resValue=document.defaultView.getComputedStyle(o,false)[attr];	
+		}else{
+			resValue=0;	
+		}	
+		return isNum?parseInt(resValue):resValue;
+	}
+	//setStyle
+	var $_setStyle=function(o,attr,val,unite){
+		o.style[attr]=val+unite;	
+	}
+	
+	//动画
+	var $_animate=function(e,attr,distance,callBackFn,time){
+		if(typeof e==="string")e=document.getElementById(e);
+		if(!time)time=800;
+		if(!distance)distance=800;
+		var originalVal=$_computeStyle(e,attr,true)
+		var start=(new Date()).getTime();
+		var step=function(){
+			var elapsed=(new Date())-start;
+			var fraction=elapsed/time;					
+			if(fraction<1){						
+				var diff=originalVal+fraction*distance;
+				$_setStyle(e,attr,diff,"px");
+				setTimeout(step,Math.min(25,time-elapsed));
+			}else{
+				$_setStyle(e,attr,originalVal+distance,"px");
+				if(callBackFn)callBackFn(e);
+			}	
+		}			
+		step();						
+	}
+
+</script>
+</head>
+
+<body>
+<div onclick='$_animate(this,"left",800,function(e){},800);' style="width:100px; height:100px; left:100px; background:#f00; position:absolute;" id="s100"></div>
+
+</body>
+</html>

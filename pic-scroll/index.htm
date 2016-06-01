@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+body{ font-size:12px;}
+#scrollDiv{ width:800px;height:100px;}
+#scrollDiv1{ width:800px; height:100px;}
+#scrollDiv1 .left,#scrollDiv1 .right{ float:left; width:12px; padding:30px 10px; text-align:center;}
+.scrollContent{float:left; width:700px;height:100px; overflow:hidden;}
+.scrollContent ul{ width:980px; float:left;}
+.scrollContent ul li{float:left; width:140px;height:100px; text-align:center;}
+
+.picssl_box { width:800px; height:auto;}
+.picssl_big { position:relative; height:600px; overflow:hidden;}
+.picssl_title { position:absolute; bottom:0; left:0; line-height:40px; width:100%; color:#fff; font-size:14px; text-indent:1em; background-color:#000; filter:alpha(opacity=60); -moz-opacity:0.6; -khtml-opacity: 0.6; opacity: 0.6;}
+
+
+
+
+.picssl_box { width:800px; height:auto; margin:0 auto;}
+.picssl_big { position:relative; height:600px; overflow:hidden;}
+.picssl_title { position:absolute; bottom:0; left:0; line-height:40px; width:100%; color:#fff; font-size:14px; text-indent:1em; background-color:#000; filter:alpha(opacity=60); -moz-opacity:0.6; -khtml-opacity: 0.6; opacity: 0.6;}
+/*图片滚动样式01*/ #focus_change li { float:left; }
+#fus_pic1 { margin-top:10px;}
+#fus_pic1 .ScrCont {width:32766px;zoom:1;}
+#fus_pic1 #List1_1, #fus_pic1 #List2_1 {float:left;}
+#fus_pic1 .pcont {width:720px;float:left; height:124px; overflow:hidden;}
+#fus_pic1 ul{ float:left;}
+#fus_pic1 li { width:120px; height:124px; line-height:18px; padding:0 3px 0; float:left;text-align:center; margin:0 8px; _ margin:0 5px;}
+#fus_pic1 li b { font-weight:normal;}
+#fus_pic1 li a { display:block; width:120px; height:90px; padding:11px 3px 3px; margin-bottom:4px;}
+#fus_pic1 li a:hover { background:url(http://icon.xcar.com.cn/wxs/moban/images/pic_gmbg.gif) no-repeat;}
+#fus_pic1 .pic_gmbtnl {width:40px;height:90px;float:left;background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnl.gif) no-repeat; margin-top:11px;}
+#fus_pic1 .pic_gmbtnr {width:40px;height:90px;float:left;background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnr.gif) no-repeat; margin-top:11px;}
+#fus_pic1 .pic_gmbtnl:hover {background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnl.gif) no-repeat -40px 0;}
+#fus_pic1 .pic_gmbtnr:hover {background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnr.gif) no-repeat -40px 0;}
+
+</style>
+<script type="text/javascript" src="wxs_scrollpic.1.2.0_source.js"></script>
+</head>
+
+<body>
+
+
+
+<div class="picssl_box" id="focus_change" style="display:nones;">
+<div id="fus_pic1" style="display:nones;">
+<a class="pic_gmbtnl" href="javascript:void(0);" id="left3" target="_self"></a>
+<div class="pcont" id="List1_1"><div>
+<ul>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img1.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img2.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img3.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img4.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img1.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+<li><a><img src="http://icon.xcar.com.cn/zhoulei/code/images/img1.jpg" width="120" height="90" /></a><b>速腾质感人生</b></li>
+</ul>
+<ul></ul>
+</div>
+</div><a class="pic_gmbtnr" id="right3" href="javascript:void(0);" target="_self"></a>
+</div>
+<div class="c"></div>
+
+<script>
+var cc2=new scrollPic();
+cc2.init({id:"List1_1",//滚动内容外围ID
+		 pagespeed:3000,//时间间隔毫秒
+		 pageWidth:142,//每次滚动的宽度
+		 scrollspeed:10//滚动速度小于pageWidth,数值越大滚动越快
+		 });
+document.getElementById("left3").onclick=cc2.onlclick;
+document.getElementById("right3").onclick=cc2.onrclick;
+</script>
+</div>
+
+
+
+
+
+</body>
+</html>
