@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>Xmeeting车迷大会邀请</title>
+    <script type="text/javascript">
+        (function(){
+            var phoneWidth = parseInt(window.screen.width);
+            var phoneScale = phoneWidth/640;
+            var ua = navigator.userAgent;
+            if (/Android (\d+\.\d+)/.test(ua)){
+                var version = parseFloat(RegExp.$1);
+                // andriod 2.3
+                if(version>2.3){
+                    document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+                // andriod 2.3以上
+                }else{
+                    document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+                }
+                // 其他系统
+            } else {
+                document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+            }            
+        })()
+    </script>
+    <link rel="stylesheet" href="css/m_topic_pop.css" media="screen" />
+    <link rel="stylesheet" href="css/m_topic_pop_page.css" media="screen" />
+    <link href="css/xcar_mb_topic.css" rel="stylesheet" />
+	<link href="css/xcar_mb_page.css" rel="stylesheet" />
+   	<script src="http://icon.xcar.com.cn/wxs/seajs/sea.js" type="text/javascript"></script>
+	<script>
+        seajs.config({
+            base:'http://icon.xcar.com.cn/wxs/seajs/',
+            alias:{
+                'zepto':'zepto.js'				
+            }	
+        })
+    </script>
+    
+    
+</head>
+<body>
+<!--$--4440*专题title修改-4440--$--><!--$--4440*专题title修改-4440--$-->
+<!--$--1001*内容--$-->
+<div class="container" id="container">
+    <div class="touch_items" style="top:0">
+       <div class="touch_item section1">
+             <div class="a_detail" style="position:absolute; top: 709px;height: 73px;  width: 283px;left: 53px;" target_div='form_block'></div>     
+             <div class="a_form" style="position:absolute; top: 709px; height: 73px; width: 203px; right:53px; " target_div='detail_block'></div>           
+       </div>
+       <div class="touch_item section2 pop detail_block"> 
+       		<div class="a_detail" style="position:absolute; top: 709px;height: 73px;  width: 283px;left: 53px;" target_div='form_block'>详情</div>
+       		<span class="pop_close"></span>       	
+            <div class="touch_item_con">
+            	<div class="touch_ic_title">
+                	<b>活动规则</b>
+                </div>
+                <div class="touch_ic_con">
+                	<h2 class="title">全系升级，完美触手可及</h2>
+                    <p>
+LEXUS雷克萨斯ES预约试驾报名活动火爆开启！即刻起参与LEXUS雷克萨斯ES预约试驾报名活动，且LEXUS雷克萨斯ES预约试驾报名活动火爆开启！即刻起参与LEXUS雷克萨斯ES预约试驾报名活动，且成功完成预约试驾就有机会赢取的以下精美奖品。
+</p>
+                </div>
+                
+                <div class="touch_ic_title">
+                	<b>活动奖品</b>
+                </div>
+                <div class="touch_ic_con" style="text-align:center;">
+           	    	<img src="pic/prize.png" width="484" height="125">
+                </div>
+            </div>
+       </div>
+       <div class="touch_item section3 pop form_block"> 
+            <span class="pop_close"></span>
+       		<div class="touch_form_con">
+       		 <div class="m_form_title">报名试驾</div>     	
+             <div class="m_topic_form m_ui_form" style="overflow:visible;">              
+            <form>
+                <div class="m_form_row m_ui_rbg pl2txt"><i>姓名:</i><input name="" type="text"></div>
+                <div class="m_form_row m_ui_sex pl2ftxt"><i>性别:</i>
+                <input id="man"  value="0" type="radio" name="m_sex"><label for='man'>男</label>
+                <input id="woman" value="1" type="radio" name="m_sex"><label for='woman'>女</label>      
+                </div>
+                <div class="m_form_row m_ui_rbg pl2txt"><i>手机:</i><input name="" type="text"></div>
+                <div class="m_form_row m_ui_rbg pl2txt"><i>地区:</i><select name=""><option>--省份--</option></select></div>
+                <div class="m_form_row m_ui_rbg" style="margin-left:90px;"><select name=""><option>--城市--</option></select></div> 
+                <div class="m_form_row m_ui_rbg"  style="padding-left:150px;"><i>意向车型:</i><select name=""><option>--省份--</option></select></div>               	<div class="m_form_row m_ui_xy"><input type="checkbox" id="ys"><label for="ys">隐私条款：您的个人资料有可能会提供给
+授权经销商，和您进一步沟通购车事宜。</label></div>
+                <div class="m_form_row m_row_submit"><input name="" type="submit" class="m_form_submit m_ui_submit ev" value="确定提交"></div><!-- 注释：如果需要加点击效果，请在class中追加'ev' -->
+            </form>
+            </div>
+            </div>
+       </div>
+    </div>
+</div>
+<!--$--1001*内容--$-->
+    
+<!--$--1002*js--$-->
+<script>
+    	seajs.use(['lib/zepto','wxapi'],function($,wxapi){				
+			var winHeight=window.innerHeight;
+			var scrollContainer=$('.container .touch_items');
+			var maxIdx=$('.touch_item').size()-1;
+			var curIdx=0;
+			var timeOut=null;
+			
+			$('.touch_item,.container,.touch_items').css({
+				height:winHeight	
+			});
+			
+			$('.container').hide();
+			var loading=$('<div />').css({'position':'fixed','top':'100px','font-weight':'bold','z-index':100,'color':'#fff','width':'400px','border-radius':'40px','text-align':'center','padding':'10px 0','left':'120px','height':300,'overflow':'hidden'}).html('<div style="position:absolute;top:196px;font-size:40px;text-align:center;width:100%;"></div>');
+			
+			$('body').css({'background':'rgba(0,0,0,1)'}).append(loading);
+			
+
+			
+			function loadImages(imgs,callback){	
+				var loadCount=imgs.length;
+				var loadedCount=0;
+				var failLoad=0;
+				var timeout=5000;
+				var loadInterval=null;
+				
+				for(var i=0;i<loadCount;i++){
+					var img=new Image();
+					img.src=imgs[i];
+					img.onload=function(){
+						loadedCount++;
+						callback&&callback.processFn&&callback.processFn(loadedCount,loadCount);
+						if(loadedCount === loadCount){										
+							callback&&callback.endFn&&callback.endFn(loadedCount,loadCount);
+						}
+					};				
+				}
+				setTimeout(function(){
+					for(var i=0;i<loadCount;i++){
+						img.onload=null;	
+					}
+					callback&&callback.endFn&&callback.endFn(loadedCount,loadCount);	
+				},timeout)
+			}
+			
+			
+			var imgs=[				
+				'http://topic.xcar.com.cn/201407/xmeeting/images/ysel.png'
+			]
+			loadImages(imgs,{
+				processFn:function(lc,tc){
+					loading.find('div').html('已加载'+parseInt(lc/tc*100)+"% ...")
+				},
+				endFn:function(lc,tc,fc){
+					loading.remove();
+					$('.container').show();
+				}	
+			})
+			
+
+			$(window).on('touchstart touchmove touchend',function(e){
+				if(checkEx(e,'m_topic_form')){
+					return;
+				}
+
+				e.stopPropagation();	
+				e.preventDefault();	
+			})
+			
+			
+			
+			
+			function checkEx(e,cls){
+				if($(e.target).hasClass(cls)||$(e.target).parents('.'+cls).length>0){
+					return true;
+				}
+				return false;	
+			}
+			var ev='tap click';
+			$('[target_div]').on(ev,function(e){
+				var targetDiv=$(this).attr('target_div');
+				$('.section1').css({'z-index':8});
+				$('.active').animate({top:'100%'}).removeClass('active');
+				$('.'+targetDiv).animate({top:0}).addClass('active');				
+			})
+			$('.pop_close').on(ev,function(){
+				$('.active').animate({top:'100%'}).removeClass('active');
+				$('.section1').css({top:'-100%'}).animate({top:0});
+			})
+			
+		})
+    </script>	
+     <!--$--1002*js--$-->
+</body>
+</html>

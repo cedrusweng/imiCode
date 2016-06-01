@@ -1,0 +1,42 @@
+/* CSS Document */
+*{ margin: 0; padding:0;}
+img{ border:none;}
+.container{
+	-webkit-user-select:none;
+	width: 640px;
+	margin: 0 auto;
+	position:relative;
+	overflow: hidden;
+	font:normal 22px/40px 'microsoft yahei';
+	
+}
+
+.touch_item{
+	position: relative;
+	overflow:hidden;
+}
+
+.touch_items{
+	position: absolute;
+	width: 100%;
+}
+
+.touch_ic_title{
+	height: 1px;
+	position: relative;
+}
+.touch_ic_title b{
+	position: absolute;
+	height: 40px;
+	top: -22px;
+	left: 20px;
+ 	font-size:28px;	
+}
+
+.touch_ic_con{
+	padding: 26px 0;
+}
+
+
+
+

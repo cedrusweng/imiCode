@@ -1,0 +1,59 @@
+/* CSS Document */
+*{ margin: 0; padding:0;}
+img{ border:none;}
+.container{
+	-webkit-user-select:none;
+	width: 640px;
+	margin: 0 auto;
+	position:relative;
+	overflow: hidden;
+	font:normal 22px/40px 'microsoft yahei';
+	
+}
+
+.touch_item{
+	position:absolute;
+	overflow:hidden;
+	top: 0;
+	width: 100%;
+}
+
+.touch_items{
+	position:relative;
+	width: 100%;
+}
+
+.touch_ic_title{
+	height: 1px;
+	position: relative;
+}
+.touch_ic_title b{
+	position: absolute;
+	height: 40px;
+	top: -22px;
+	left: 20px;
+ 	font-size:28px;	
+}
+
+
+
+.pop.active{
+	top: 0;
+
+}
+
+
+.pop{
+	top: 100%;
+	left: 0;
+	z-index:10;
+}
+
+.pop_close{
+	position: absolute;
+	display: block;
+	width: 90px;
+	height: 90px;
+	cursor: pointer;
+	z-index: 10;
+}

@@ -1,0 +1,229 @@
+select,input[type=text]{
+	font:normal 28px/28px Arial,'microsoft yahei';
+	color:#666;
+	text-shadow:0 1px 1px #fff;
+}
+.m_ui_body{
+	width:640px;
+	margin:0 auto;
+	background:#fff;
+	font:normal 28px/53px Arial,'microsoft yahei';
+	
+}
+.m_ui_main{
+	background:#2b2b2b;
+	color:#fff;
+	padding-bottom:20px;
+}
+.m_ui_nav{
+	background:#fff;
+	border-top:solid 1px #cdcbcc;
+	border-bottom:solid 1px #aaa;	
+}
+.m_ui_nav li{
+	float:left; 
+	width:212px;
+	color:#333;
+	font-size:32px;
+	text-shadow:0 1px 1px #fff;
+	border-left:solid 1px #fff;
+	border-right:solid 1px #c8c8c8;
+	background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0, #ededed),color-stop(50%, #e0e0e0),color-stop(1,#d4d4d4));
+}
+
+/* 修改人：宋强  修改日期：20130401 内容：提交按钮鼠标点击效果 */
+.m_ui_nav li.touch,
+.m_ui_nav_two li.touch{
+	background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0, #afafaf),color-stop(1,#8e8e8e));
+}
+.m_ui_nav li a,
+.m_ui_nav_two li a{
+	color:#333;
+	text-shadow:0 1px 1px #fff;
+}
+.m_ui_nav li:first-child,
+.m_ui_nav_two li:first-child{
+	border-left:none;
+}
+.m_ui_nav li:last-child,
+.m_ui_nav_two li:last-child{	
+	border-right:none;
+}
+.m_ui_nav li.active{
+	width:213px;
+	margin-right:-1px;
+	margin-top:-1px;
+	background:#468cee;
+	height:79px;
+	color:#fff;
+	text-shadow:0 -1px 1px #000;
+	-webkit-box-shadow:inset 0px 3px 10px #214c9b;
+}
+.m_ui_nav li.active a,
+.m_ui_nav_two li.active a{
+	color:#fff;
+	text-shadow:0 -1px 1px #000;
+}
+.m_ui_nav li:last-child.active{
+	width:212px;
+}
+
+/* 修改人：宋强  修改日期：20130408 内容：两个标签 */
+.m_ui_nav_two li{
+	float:left; 
+	width:319px;
+	color:#333;
+	font-size:32px;
+	text-shadow:0 1px 1px #fff;
+	border-left:solid 1px #fff;
+	border-right:solid 1px #c8c8c8;
+	background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0, #ededed),color-stop(50%, #e0e0e0),color-stop(1,#d4d4d4));
+}
+.m_ui_nav_two li.active{
+	width:320px;
+	margin-right:-1px;
+	background:#468cee;
+	height:77px;
+	color:#fff;
+	text-shadow:0 -1px 1px #000;
+	-webkit-box-shadow:inset 0px 3px 10px #214c9b;
+}
+.m_ui_nav_two li:last-child.active{
+	width:319px;
+}
+
+.m_ui_title{ 
+	background:#444;
+	text-shadow:0 -1px 1px #000;
+}
+.m_ui_rbg{
+	background:#e0e0e0;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:inset 0 1px 8px #666;	
+}
+.m_ui_form{
+	color:#666;
+	height:636px; 
+	overflow: auto;
+    -webkit-overflow-scrolling:touch;
+}
+.m_form_title{
+	color: #fff;
+	font-size: 34px;
+	padding: 0 0 33px;
+}
+.m_form_title .m_back{
+	float: right;
+	font-size: 24px;
+	margin-right: 40px;
+}
+.m_form_title .m_back i{
+	background:url(../images/m_back_arrow.png) no-repeat;
+	display: inline-block;
+	width: 18px;
+	height: 24px;
+	vertical-align: -4px;
+	margin-left: 5px;
+}
+.m_ui_radio{
+	border:none;
+	background-image: -webkit-gradient(linear,0 0,0 100%,color-stop(0, #ffffff), color-stop(1, #cbcbca));
+	border:1px solid #b2b2b2;
+	border-top-width: 0px;	
+}
+.radio_current{
+	background-image: -webkit-gradient(linear,0 0,0 100%,color-stop(0, #367eea), color-stop(1, #448dec));
+	color: #fff;
+	text-shadow: 0 -1px 1px #000;
+	-webkit-box-shadow: inset 0px 2px 10px #2157a1;
+	border: 1px solid #2157a1;
+	border-right:none;
+}
+.m_ui_submit{
+	font:bold 28px/28px Arial,'simhei','microsoft yahei';
+	color: #000;
+	width:100%;
+	border:none;
+	background: #edc900;
+	border-radius: 5px;	
+	-webkit-touch-callout: none;-webkit-text-size-adjust: none;-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* 修改人：宋强  修改日期：20130319 内容：提交按钮鼠标点击效果 */
+.m_ui_submit.touch{
+	color: #242424;
+	text-shadow:0 1px 2px #fff;
+	border:1px solid #969696;
+	background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0,#afafaf),color-stop(50%,#afafaf),color-stop(50%,#8e8e8e),color-stop(1,#8e8e8e));
+	
+}
+.m_ui_detail{
+	padding:0 27px;
+	padding-top:30px;
+	padding-bottom:10px;
+	font:normal 28px/53px Arial,'microsoft yahei';
+}
+.m_ui_listRadio{
+	padding-top:50px;
+}
+.m_ui_listRadio_l{
+	
+}
+.m_ui_listRadio_l li{
+	text-align: center;
+	width: 162px;
+	display: inline-block;
+	padding: 10px 0 0 0;
+}
+.m_ui_listRadio_l .active i {
+	border-color: #ff8712;
+}
+.m_ui_listRadio_l li i{
+	padding: 1px;
+	border: 2px solid #000;
+	display: inline-block;
+}
+.m_ui_listRadio_l li em {
+	display: block;
+}
+.m_ui_sex{
+	color:#ccc;
+}
+
+.m_ui_footer{
+	background:#2b2b2b;
+	color:#666;
+}
+
+/* 修改人：宋强  修改日期：20130305 */
+.m_status{
+	color:#fff
+}
+.m_status .sectitle{
+	width:120px;
+	height:42px;
+	background:-webkit-gradient(linear,0 0,100% 100%, from(#000000), to(#830015));
+	text-shadow:0 1px 0 #000;
+	line-height:42px;
+}
+.m_status .sectitle:after{
+	right:-15px;
+	top:8px;
+	width:28px;
+	height:28px;
+	background:-webkit-gradient(linear,0 0,100% 100%, from(#6f0012), to(#7f0015));
+}
+
+.m_ui_xy{
+	padding-left: 80px;
+	line-height: 36px;
+	height: auto;
+	letter-spacing: -2px;
+	color:#fff;
+}
+.m_ui_xy input[type=checkbox]{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	left: 0;
+	top: 12px;	
+}

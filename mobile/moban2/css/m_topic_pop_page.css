@@ -1,0 +1,47 @@
+
+.section1{
+	background:url(../images/section1_bg.jpg) no-repeat;
+	z-index: 8;
+}
+.section2{
+	background:url(../images/section2_bg.jpg) no-repeat;
+}
+.section3{
+	background:url(../images/section3_bg.jpg) no-repeat;
+}
+
+.touch_item_con{
+	position: relative;
+	width: 572px;
+	margin: 0 auto;
+	margin-top: 126px;
+}
+.touch_ic_title b{
+	padding: 0 10px;
+	color: #fff;
+}
+.touch_ic_con .title{
+	font-size: 24px;
+}
+
+.touch_form_con{
+	margin-top: 160px;
+	padding-left: 33px;
+}
+.pop_close{
+	right: 0;
+}
+.section2 .pop_close{
+	top: 74px;
+}
+.section3 .pop_close{
+	top: 109px;
+}
+
+.section3 .touch_form_con{
+	margin-top: 136px;
+}
+.touch_ic_con{
+	padding: 46px 0;
+	color: #fff;
+}

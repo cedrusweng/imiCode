@@ -1,0 +1,75 @@
+
+.section1{
+	background:#fff url(../images/section1_bg.jpg) no-repeat center bottom;
+	z-index: 8;
+}
+.section2{
+	background:#fff url(../images/section2_bg.jpg) no-repeat center bottom;
+}
+.section3{
+	background: #00a0e9 url(../images/apply_btn.png) no-repeat;
+	width: 629px;
+	left:5px;
+	z-index: 10;
+	border-radius:365px 365px 0 0;
+	top: 100%;
+	margin-top: -250px;
+	float: none;
+	position: absolute;
+}
+
+.touch_item_con{
+	position: relative;
+	width: 572px;
+	margin: 0 auto;
+	margin-top: 126px;
+}
+.touch_ic_title b{
+	padding: 0 10px;
+	color: #fff;
+}
+.touch_ic_con .title{
+	font-size: 24px;
+}
+
+.touch_form_con{
+	margin-top: 160px;
+	padding-left: 33px;
+}
+.pop_close{
+	right: 0;
+}
+.section3 .touch_form_con{
+	margin-top: 260px;
+}
+.touch_ic_con{
+	padding: 46px 0;
+	color: #fff;
+}
+.section3_btn{
+	cursor: pointer;
+	border-radius:365px 365px 0 0;
+	width: 629px;
+	height: 250px;
+	position: absolute;
+	left:0;
+	top: 0;
+}
+
+.touch_float_block{
+	position: absolute;
+	top: 50%;
+	margin-top: -58px;	
+	width: 58px;
+	height: 116px;
+	background:#00a0e9 url(../images/float_block.png) no-repeat;
+}
+.section1 .touch_float_block{
+	right: 0;
+	background-position: -58px 0;
+	border-radius:58px 0 0 58px;
+}
+.section2 .touch_float_block{
+	left: 0;
+	border-radius:0 58px 58px 0;
+}

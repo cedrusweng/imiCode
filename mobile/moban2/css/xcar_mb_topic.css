@@ -1,0 +1,115 @@
+body,div,li,dt,dd,dl,ul,li,p,form,img{ margin:0; padding:0;}
+li,ul{ list-style:none;}
+em,i{ font-style:normal;}
+img{border:none;vertical-align: middle;}
+/*去掉浏览器默认点击效果 2013.03.08*/
+select,a{text-decoration:none;outline:none;-webkit-touch-callout: none;-webkit-text-size-adjust: none;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+select{-webkit-appearance: none;}
+textarea{onresize:none;}
+
+
+
+
+
+.m_topic_form{
+	padding:0 20px 20px 0;
+	font:normal 28px/56px 'Microsoft YaHei';
+}
+.m_form_row{
+	padding:2px 15px;
+	margin-bottom:50px;
+	position:relative;
+	height:56px;
+}
+
+.m_form_row input[type=text]{
+	width:100%; 
+	border:none;
+	background:transparent;
+	padding:10px 0;
+}
+.m_form_row input[type=radio]{
+	width: 30px;
+	height: 30px;
+	margin: 18px 10px 0 15px;
+vertical-align: -5px;	
+}
+.m_form_row select{
+	width:100%; 
+	border:none;
+	background:url(../images/drop_arr.png) no-repeat right 24px;
+	padding:10px 20px 10px 0;
+}	
+.pl2txt{ 
+	padding-left:95px;
+	
+}
+.m_form_row i{
+	position:absolute;
+	text-shadow:0 1px 1px #fff;
+	top:3px;
+	left:20px;
+}
+.pl2ftxt{ 
+	padding-left:105px;
+}
+
+.pl3txt{ 
+	padding-left:115px;
+}
+.m_radio{
+	font-size:28px;
+	display: block;
+	float:left;
+	width:98px;
+	height:58px;
+	line-height:58px;			
+}
+.m_radio_l{
+	border-radius: 8px 0px 0px 8px;
+	text-shadow: 0px 1px 1px #fff;
+	border-right-width: 0;
+}
+.m_radio_r{
+	border-radius: 0px 8px 8px 0px;
+	text-shadow: 0px 1px 1px #fff;
+	border-left-width: 0;
+}
+.m_form_submit{
+	text-align: center;
+	width:100%;
+	height: 66px;
+	line-height: 66px;
+	border-radius: 8px;				
+}
+.m_row_submit{ padding:0;}
+.m_topic_footer{ padding:0 27px;}
+.m_topic_footer p{
+	border-top: 1px solid #7b7b7b;
+	text-align: center;
+	padding-top: 16px;
+}
+
+/* 修改人：宋强  修改日期：20130305 */
+.m_topic_status{
+	display:block;
+	padding-left:150px;
+	margin-top:24px;
+	line-height:42px;
+}
+.m_topic_status .sectitle{
+	position:relative;
+	display:block;
+	z-index:0;
+	float:left;
+	margin-left:-150px;
+	border-radius:2px;
+	font-size:28px;
+}
+.m_topic_status .sectitle:after{
+	content: " ";
+	display:block;
+	-webkit-transform:rotate(45deg);
+	position:absolute;
+	z-index:-1
+}
