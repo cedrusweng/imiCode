@@ -1,0 +1,87 @@
+* { margin:0; padding:0;}
+ul, ul li { list-style:none;}
+img { border:none;}
+body { background-color:#f4f4f4;}
+
+.aodimain{ width:955px; margin:0 auto; background:url(bg.jpg) no-repeat}
+.topbanner{ width:955px; height: 93px; position:relative;}
+.boxmain{ width:955px; height:358px; position:relative;}
+.boxpost{ width:955px; height:294px; position:relative;}
+#aodifoot{ width:955px;  position:relative;}
+#aodifoot{color:#6c6f72}
+#aodifoot a{color:#6c6f72}
+.pl_main{ width:795px;height:357px}
+
+/*box395k*/
+.box395k{ width:100%; border-left:1px #B6B6B6 solid; border-right:1px #B6B6B6 solid; }
+.box395k .pagination{
+	position:absolute;
+	left:736px;
+	top:167px;
+	width:200px;
+	height:123;
+	clear:both;
+	float:right;
+}
+.box395k .sliderwrapper{
+	float:left;
+	width:716px;
+	height:100px;
+	position:absolute;
+	left:18px;
+	top:141px;
+}
+.box395k .pagination .subLineTab{width:100%;display:none;}
+.box395k .pagination a{display:block; width:206px; height:26px; background:url(../images/btn_1.jpg) no-repeat; text-indent:-9999px;}
+.box395k .pagination a.own{ background:none;width:91px;}
+.box395k .pagination a:hover{ background:url(../images/btn_1_hover.jpg) no-repeat}
+
+.contentdiv{padding: 18px 60px;}
+.contentdiv a{color:#1e431f;text-decoration:none; padding:0px; font-size:12px; line-height:24px; float:left; width:53px; height:20px;}
+
+.bclass{ width:33px; height:358px; background:url(../images/b_bg.jpg) no-repeat; float:right;filter:alpha(opacity=90); -moz-opacity:0.9; opacity: 0.9; }
+.mclass{ width:823px; height:358px;  float:right; display:none; position:relative}
+
+#b1{ background-position:-99px 0;}
+#b2{ background-position:-66px 0;}
+#b3{ background-position:-33px 0;}
+#b4{ background-position:left;}
+
+
+/*box290*/
+.box290{width:290px;height:195px;border:1px #53637C solid; position:relative;}
+.box290 .pagination{width:100%;height:16px;clear:both;position:absolute;top:178px;right:0px;}
+.box290 .pagination .subLineTab{width:100%;display:block;height:1px;font-size:1px;background:#FFF;overflow:hidden;filter:progid:DXImageTransform.Microsoft.Alpha(startX=0, startY=0, finishX=50, finishY=100,style=1,opacity=0,finishOpacity=100)}
+.box290 .pagination .subPageTab{float:right}
+.box290 .pagination .iToc{border-left:1px #FFF solid; float:left;}
+.box290 .pagination a{width:auto;display:inline;float:left;color:#000;background:#FFF;text-align:center;padding:2px 8px 0px 8px;line-height:14px;filter:progid:DXImageTransform.Microsoft.alpha(opacity=75);-moz-opacity:0.75;opacity:0.75;text-decoration:none;}
+.box290 .pagination a:hover,.box290 .pagination a.selected{color:#FFF;background:#F60; /*标签选项被选样式*/}
+
+#floatbox{ z-index:9999}
+.floatbox{
+	background:url(../images/floatbg.jpg) no-repeat;
+	width:421px;
+	height:442px;
+	position:absolute;
+	left:319px;
+	top:-375px; display:none;
+}
+.floatbox table{
+	color:#6e8091;
+}
+.floatbox input{ border:1px solid #85a2c2; line-height:22px;}
+.floatbox select{ border:1px solid #85a2c2}
+.textr{ text-align:right; height:28px;}
+
+.btn_float{text-indent:-9999px;float:left;display:block;width:92px; height:26px; margin-right:20px;cursor: pointer; margin-top:20px;}
+.btn_float:hover{background-position:0 -27px}
+.btn_float1{background:url(../images/btn_sub.jpg) no-repeat;}
+.btn_float2{background:url(../images/btn_re.jpg) no-repeat;}
+.baidushare{
+	position:absolute;
+	top:12px;
+	left:744px;
+	width:167px;
+	height:24px;line-height: 24px;
+	color:#5d5d5d
+}

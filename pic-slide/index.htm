@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>滑动效果</title>
+<script type="text/javascript">
+function getTagsByClass(idstr,classstr){//通过类名获得标签
+	var tags=document.getElementById(idstr).getElementsByTagName('*');
+	var tags_res=[];
+	var re=new RegExp(classstr, "i")
+	for(var i=0,len=tags.length;i<len;i++){
+		var tag=tags[i];
+		if(tag.className){
+			var attrClass=tag.className;			
+			if(re.test(attrClass)){//attrClass.indexOf(classstr)>-1
+				tags_res.push(tag);	
+			}
+		}		
+	}
+	return tags_res;
+}
+function addEvent(o,e,fn){//添加事件监听函数
+	if(o.addEventListener){
+		o.addEventListener(e,fn,false);	
+	}else if(o.attachEvent){
+		o.attachEvent('on'+e,fn);	
+	}else{
+		o[e]=fn;	
+	}		
+}
+</script>
+<style>
+*{ margin:0; padding:0;}
+img{ border:none;}
+li,ul{ list-style:none;}
+.ul_wrap{ width:99px; overflow:hidden; height:358px; display:block;}
+.ul_wrap li{ float:left;height:358px;}
+
+.li_menu{background:url(images/b_bg.jpg) no-repeat;width:33px;}
+.l1{ background-position:0 0;}
+.l2{ background-position:-33px 0;}
+.l3{ background-position:-66px 0;}
+.li_content{ width:823px; display:none; background-color:#ccc;}
+</style>
+
+</head>
+
+<body>
+<div style="position:relative; background:url(pic/pic4.jpg) no-repeat 99px 0; width:922px; margin:0 auto; height:358px;" id="w1">
+<ul class="ul_wrap">
+
+<li class="li_menu l1"></li><li class="li_content"><img src="pic/pic1.jpg" width="823" height="358" /></li>
+
+<li class="li_menu l2"></li><li class="li_content"><img src="pic/pic2.jpg" width="823" height="358" /></li>
+
+<li class="li_menu l3"></li><li class="li_content"><img src="pic/pic3.jpg" width="823" height="358" /></li>
+</ul>
+</div>
+<script type="text/javascript">
+(function(){
+	var moveState=false;
+	function setMenu(idstr,fn,eve,m,c){
+	var menus=this.menus=getTagsByClass(idstr,m);
+	var conts=this.conts=getTagsByClass(idstr,c);
+	var sblock=this.sblock=[];
+	var ww=this.ww=menus[0].parentNode.offsetWidth;
+	var timer,outtimer;
+	for(var i=0,len=menus.length;i<len;i++){
+		sblock[sblock.length]={	menu:menus[i],//菜单
+								cont:conts[i]//内容
+								};
+		(function(key){
+			addEvent(sblock[key].menu,eve,function(){	
+                if(moveState)return;
+				if(sblock[key].cont.style.display=='block')return;
+				timer=setTimeout(function(){fn.call(this,key,40,823);},200)				
+			})
+			addEvent(sblock[key].menu,'mouseout',function(){	
+				clearTimeout(timer);				
+			})
+		})(i)
+	}
+	addEvent(menus[0].parentNode,'mouseout',function(){
+		outtimer=setTimeout(function(){
+			var oopen=function(){
+				for(var i=0,len=menus.length;i<len;i++){
+					if(sblock[i].cont.style.display=='block'){
+						return sblock[i].cont;
+					}
+				}
+				return null;
+			}();
+			if(oopen!=null){oopen.style.display='none';oopen.parentNode.style.width='99px';}
+			clearTimeout(outtimer);							 
+		},100);
+	})
+	addEvent(menus[0].parentNode,'mouseover',function(){
+		
+		clearTimeout(outtimer);
+		outtime=null;
+	});
+}
+function show(key,spd,w){
+	var pre;
+	for(var i=0,len=menus.length;i<len;i++){
+		if(sblock[i].cont.style.display=='block'){
+			pre=sblock[i].cont;	
+		}
+	}
+	if(pre){
+		slowHide(pre,spd,w);
+	}
+	slowShow(sblock[key].cont,spd,w)
+	sblock[key].cont.parentNode.style.width=ww+w+'px';
+}
+function slowShow(o,spd,sw){
+	o.timer=null;
+	o.style.display='block';
+	o.style.width='0px';
+	o.style.overflow='hidden';
+	moveState=true;
+	o.move=function(){
+		var ws=parseInt(o.style.width);
+		if(ws+spd>=sw){
+			o.style.width=sw+'px';
+			clearTimeout(o.timer);
+			o.timer=null;
+			moveState=false;
+			return;
+		}
+		o.style.width=ws+spd+'px';
+		o.timer=setTimeout(function(){o.move()},1)
+	}
+	o.move();
+}
+
+function slowHide(o,spd,sw){
+	var w=sw;
+	o.timer=null;
+	moveState=true;
+	function move(){
+		var ws=parseInt(o.style.width);
+		if(ws-spd<=0){
+			o.style.width='0px';
+			o.style.display='none';
+			clearTimeout(o.timer);
+			o.timer=null
+			moveState=false;
+			return;
+		}
+		o.style.width=ws-spd+'px';
+		o.timer=setTimeout(function(){move()},1)
+	}
+	move();	
+}
+setMenu('w1',show,'mouseover','li_menu','li_content');
+})();
+
+</script>
+</body>
+</html>
