@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>成都车展焦点图</title>
+<style>
+*{ margin:0; padding:0;}
+li,ul{ list-style:none;}
+img{ border:none;}
+
+	.cd_slider{height:258px; font:normal 12px/22px SimSun;  border:solid 1px #dadada; margin:10px auto;}	
+	.cd_slider_item{overflow:hidden;background:#fff; }
+	.cd_slider_item.current .cd_slider_menu{ color:#f00;}
+	.cd_slider_menu{ width:16px; float:left; cursor:pointer; height:258px; background:url(images/menu_bg.jpg) no-repeat; padding:0 7px; font-weight:bold; line-height:20px; font-size:14px; color:#918869;}
+	.cd_slider_menu b{ margin-top:50px; display:block;}
+	.cd_slider_con{ float:left; width:770px;overflow:hidden;}
+	.cd_slider_imgList{ width:770px; padding-top:14px; padding-left:8px; _padding-left:0px;}
+	.cd_slider_imgList li{ float:left; width:133px; padding:3px 2px; height:220px; border:solid 1px #dfdfdf; background-color:#f0f0f0; text-align:center; margin:0 6px;}
+</style>
+
+<script src="http://www.xcar.com.cn/bbs/js/jquery-1.5.2.min.js" language="javascript"></script>
+
+</head>
+<body>
+<div class="cd_slider">
+    <div class="cd_slider_item">
+        <div class="cd_slider_menu"><b>清新美女3</b></div>
+        <div class="cd_slider_con">
+         <ul class="cd_slider_imgList">
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+        </ul>
+    </div></div>
+    <div class="cd_slider_item">
+        <div class="cd_slider_menu"><b>清新美女3</b></div>
+        <div class="cd_slider_con">
+         <ul class="cd_slider_imgList">
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+        </ul>
+    </div></div>
+    <div class="cd_slider_item">
+        <div class="cd_slider_menu"><b>清新美女3</b></div>
+        <div class="cd_slider_con">
+         <ul class="cd_slider_imgList">
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+        </ul>
+    </div></div>
+    <div class="cd_slider_item">
+        <div class="cd_slider_menu"><b>清新美女3</b></div>
+        <div class="cd_slider_con">
+         <ul class="cd_slider_imgList">
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+            <li><a href="#" target="_blank"><img src="pic/nvimg.jpg" width="133" height="199" /><p>美女1</p></a></li>
+        </ul>
+    </div></div>
+</div>
+<script>
+/*var tempObj=null;
+var tempTimeout=null;
+var scrollStates=false;
+function scrollSlider(obj){
+	var $this=$(obj);
+	tempObj=$('.cd_slider li.current');
+	var parentObj=$this.parents('.cd_slider .cd_slider_item');
+	if(!parentObj.hasClass('current')&&!scrollStates){
+		scrollStates=true;
+		parentObj.addClass('current').animate({width:'800px'},400,function(){scrollStates=false;});
+		tempObj.animate({'width':'30px'},400,function(){scrollStates=false;}).removeClass('current');
+    }
+}
+$(function(){	
+	$('.cd_slider .cd_slider_menu').bind('click mouseover',function(){
+		scrollSlider(this)
+	})
+
+})
+*/
+var wxs_Slider=function (options){
+	var defaultOptions={
+			scrollWrapClass:'.cd_slider',
+			scrollItemClass:'.cd_slider_item',
+			scrollMenus:'.cd_slider_menu',
+			nowClass:'current',
+			scrollMenuEvents:'click',
+			scrollMenuWidth:30,
+			scrollContentWidth:770,
+			scrollBoxHeight:258,
+			animateTime:400,
+			hoverTime:120,
+			startL:0
+	};
+	defaultOptions=$.extend({},defaultOptions,options);	
+	this.scrollWrap=$(defaultOptions.scrollWrap);
+	this.scrollItems=$(defaultOptions.scrollWrapClass+' '+defaultOptions.scrollItemClass);
+	this.scrollMenus=$(defaultOptions.scrollMenus);
+	this.scrollItemClass=defaultOptions.scrollItemClass;
+	this.nowClass=defaultOptions.nowClass;
+	this.scrollMenuEvents=defaultOptions.scrollMenuEvents;
+	this.scrollMenuWidth=defaultOptions.scrollMenuWidth;
+	this.scrollContentWidth=defaultOptions.scrollContentWidth;
+	this.scrollBoxHeight=defaultOptions.scrollBoxHeight;
+	this.animateTime=defaultOptions.animateTime;
+	this.hoverTime=defaultOptions.hoverTime;
+	this.startL=defaultOptions.startL;
+}
+wxs_Slider.prototype={
+	init:function(index){
+		var $this=this;
+		$this.setWraper();
+		$this.setItemCss();
+		$this.addMenuEvent();
+		if(index!==undefined&&index!==null&&index<$this.scrollItems.length){
+			$this.scrollItems.eq(index).addClass($this.nowClass)
+			$this.scrollItem($this.scrollItems,index)
+		}
+	},
+	setWraper:function(){
+		var $this=this,
+			$width=$this.scrollMenuWidth*$this.scrollItems.length+$this.scrollContentWidth,
+			$height=$this.scrollBoxHeight;
+		$this.scrollWrap.css({
+							 'position':'relative',
+							 'width':$width+'px',
+							 'height':$height+'px',
+							 'overflow':'hidden'
+							 })//设置外框属性	
+	},	
+	setItemCss:function setItemCss(){
+		var $this=this;
+		function setCss(oitem,index,left){			
+			oitem.css({												//样式列表
+				'left':left+'px',
+				'position':'absolute',
+				'width':$this.scrollMenuWidth+$this.scrollContentWidth+'px',
+				'z-index':+index+100
+			})
+		}
+		$this.scrollItems.each(function(){	
+			var index=$(this).index();
+			setCss($(this),index,$this.startL+index*$this.scrollMenuWidth)//设置各条的CSS样式
+		})
+	},
+	//滚动的时候
+	scrollItem:function(scrollArr,index){
+		var $item,$endLeft,$this=this,animateTime=$this.animateTime;
+		for(var i=0,len=scrollArr.length;i<len;++i){
+			$item=$(scrollArr[i]);
+			$endLeft=parseInt($this.scrollMenuWidth*i);
+			if(i<=index){					
+				$item.animate({'left':$endLeft+'px'},animateTime);					
+			}else{
+				$item.animate({'left':$endLeft+$this.scrollContentWidth+'px'},animateTime);
+			}
+		}
+	},
+	addMenuEvent:function(){
+		var timeOut=null,$this=this,current=this.nowClass,evs=$this.scrollMenuEvents,isMOver=(evs.match(/mouseover|mouseenter/g));
+		if(isMOver!==null){
+			evs=evs.replace(/mouseover|mouseenter/g,'')
+			$this.scrollMenus.hover(function(){
+				var $one=$(this);
+				if(timeOut==null)
+				timeOut=setTimeout(function(){addEv($one);},$this.hoverTime);						 
+			},function(){
+				if(timeOut!==null)
+				clearTimeout(timeOut);
+				timeOut=null;
+			})
+		}
+		$this.scrollMenus.bind(evs,function(){
+				addEv($(this));
+		})		
+		function addEv(o){
+				var parent=o.parents($this.scrollItemClass);		//当前要移动的块
+				if(parent.hasClass(current))return;
+				$this.scrollItems.removeClass(current);
+				parent.addClass(current)
+				$this.scrollItem($this.scrollItems,parent.index());	
+		}
+
+	}
+}/*
+
+*/
+var config1={
+	scrollWrap:'.cd_slider',
+	scrollMenus:'.cd_slider .cd_slider_menu',
+	scrollMenuEvents:'mouseover click',
+	nowClass:'current',
+	scrollMenuWidth:30,
+	scrollContentWidth:770
+}
+var sl=new wxs_Slider(config1)
+sl.init(0);
+</script>
+</body>
+</html>
