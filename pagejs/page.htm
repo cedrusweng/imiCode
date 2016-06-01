@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script src="page.js"></script>
+</head>
+
+<body>
+<style>
+*{ margin:0; padding: 0;}
+.article_page_bottom{
+	padding:22px 0 15px;
+	border-top: 1px solid #d7d6db;
+	font-size:14px;
+	line-height:32px;
+	text-align:center;
+}
+.article_page_bottom a{
+	text-decoration: none;
+}
+.article_page_bottom .page{
+	display:inline-block;
+	width:34px;
+	height:32px;
+	border:1px solid #ebebed;
+	text-align:center;
+	margin:0 3px;
+	
+}
+.article_page_bottom  a:hover{
+	text-decoration:none;
+}
+.article_page_bottom .active{
+	display:inline-block;
+	width:34px;
+	height:32px;
+	border:1px solid #fff;
+	text-align:center;
+	font-weight:bold;
+	margin:0 3px;
+}
+.article_page_bottom .page_about{
+	display:inline-block;
+	height:32px;
+	padding:0 8px;
+	border:1px solid #ebebed;
+	text-align:center;
+	margin:0 3px;
+}
+.article_page_bottom .page:hover,
+.article_page_bottom .page_about:hover{
+	border:1px solid #1c92dc;
+	background-color:#3099db;
+	color:#fff;
+}
+.article_page_bottom .page_up,
+.article_page_bottom .page_down,
+.article_page_bottom .page_up_no,
+.article_page_bottom .page_down_no{
+	display:inline-block;
+	height:32px;
+	text-align:center;
+	background-image:url(http://icon.xcar.com.cn/news/images/article_ico01.gif);
+	background-repeat:no-repeat;
+	margin:0 3px;
+}
+.article_page_bottom .page_up{
+	padding:0 18px 0 36px;
+	border:1px solid #e5e5e5;
+	background-color:#fff;
+	background-position:0 -1107px;
+	color:#444444;
+}
+.article_page_bottom .page_down{
+	padding:0 36px 0 18px;
+	border:1px solid #3099db;
+	background-color:#41a1de;
+	background-position:0 -729px;
+	color:#fff;
+}
+.article_page_bottom .page_up:hover{
+	border:1px solid #3099db;
+	background-color:#41a1de;
+	background-position:0 -694px;
+	color:#fff;
+}
+.article_page_bottom .page_down:hover{
+	border:1px solid #217cb8;
+	background-color:#2a80b9;
+	color:#fff;
+}
+.article_page_bottom .page_up_no{
+	padding:0 18px 0 36px;
+	border:1px solid #e5e5e5;
+	background-color:#fff;
+	background-position:0 -1152px;
+	color:#b5b5b5;
+}
+.article_page_bottom .page_down_no{
+	padding:0 36px 0 18px;
+	border:1px solid #e5e5e5;
+	background-color:#fff;
+	background-position:0 -1196px;
+	color:#b5b5b5;
+}
+.article_page_text{
+	height: 16px;
+	line-height: 16px;
+	color: #999;
+	text-align: center;
+	padding: 0px 0 20px;
+}
+</style>
+<div class="article_page_bottom" id="t_0915_ipage"></div>
+<script>
+var page=document.getElementById('t_0915_ipage');
+var pageObj=new Page(
+{
+	itemCount:200,
+	pageItemCount:5,
+	list:{
+		parent:page,
+		itemTag:'a',
+		itemClass:'page',
+		prevBtn:'上一页',
+		prevBtnClass:'page_up',
+		prevBtnDisClass:'page_up_no',
+		nextBtn:'下一页',
+		nextBtnClass:'page_down',
+		nextBtnDisClass:'page_down_no',
+		current:'active'
+	},
+	pageHandle:function(i){
+		console.log('this is page '+ i +'')
+	}
+})
+</script>
+</body>
+</html>
