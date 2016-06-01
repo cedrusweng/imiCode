@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演示：使用raphael.js绘制中国地图</title>
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/main.css" />
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript" src="chinamapPath.js"></script>
+</head>
+
+<body>
+<div id="main">
+   <div class="demo">
+   		<div id="map"></div>
+   </div>
+</div>
+
+<script type="text/javascript">
+window.onload = function () {
+	createTopicChinaMap(function(x,y,name){console.log(x,y,name)})
+}
+</script>
+
+
+</body>
+</html>
