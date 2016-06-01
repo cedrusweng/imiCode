@@ -1,0 +1,58 @@
+<div style="overflow:hidden;width:120px;height:90px;position:relative;">
+    <ul style="list-style-type:none;width:9999px;position:absolute;height:90px;padding:0px;margin:0px;" id="myul2">
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+        <li style="float:left;margin:0px;"><img src="http://pic.xcarimg.com/img/07news/201305/9XsfY75kS70876.jpg"></li>
+    </ul>
+</div>
+
+<div>
+    <a href="javascript:void(0);" onclick="testRoll2.pre();"><<</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(1);">1</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(2);">2</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(3);">3</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(4);">4</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(5);">5</a>
+    <a href="javascript:void(0);" onmouseover="testRoll2.goTo(6);">6</a>
+    <a href="javascript:void(0);" onclick="testRoll2.next();">>></a>
+</div>
+<script>function addHandler(a,c,b){if(a.addEventListener){addHandler=function(d,f,e){d.addEventListener(f,e,false)}}else{if(a.attachEvent){addHandler=function(d,f,e){d.attachEvent("on"+f,e)}}else{addHandler=function(d,f,e){d["on"+f]=e}}}addHandler(a,c,b)};
+addHandler(window,'load',function(){
+    testRoll2 = new btnRoll({
+        root : 'myul2', /* 可传id字符串，也可传元素引用 */
+        // compass : 'top', /* 默认left */
+        easing : "easeOutCirc", /* getQuads() */
+        preCallBack     : function(a,b,c){  /* 左翻页后 */
+            /* a跳转后 b总页数 c跳转前 */
+        },
+        nextCallBack    : function(a,b,c){  /* 右翻页后 */
+            
+        },
+        playCallback    : function(a,b,c){  /* 播放前 */
+           
+        },
+        nextCallBefore  : function(a,b,c){  /* 右翻页前 */
+           
+        },
+        preCallBefore   : function(a,b,c){  /* 左翻页前 */
+           
+        },
+        goToCallBack    : function(a,b,c){  /* 跳转后 */
+           
+        },
+        goToCallBefore  : function(a,b,c){  /* 跳转前 */
+           
+        },
+        stopCallBack    : function(a,b,c){  /* 停止前 */
+            
+        }
+    });
+    testRoll2.play();
+});
+
+
+</script>
+

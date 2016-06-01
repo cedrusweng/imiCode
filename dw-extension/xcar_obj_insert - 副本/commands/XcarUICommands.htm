@@ -1,0 +1,61 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<!-- MENU-LOCATION=NONE -->
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<head>
+<!-- Copyright 1999, 2000, 2001, 2002, 2003, 2004, 2005 Macromedia, Inc. All rights reserved. -->
+<title>xcar代码管理工具</title>
+<script type="text/javascript" src="../Shared/Common/Scripts/AssetInfoClass.js"></script>
+<script type="text/javascript" src="../Shared/Common/Scripts/dwscripts.js"></script>
+<script src="XcarUICommands.js"></script>
+<script>
+var returnTag='';
+var gDialogShown = false;
+function initializeUI(){  
+  if (!gDialogShown){
+	initMenu();
+    document.theForm.EffectName.focus(); 
+    gDialogShown = true;
+  }
+}
+</script>
+<style>
+#EffectBox td{
+	padding: 3px 0;
+	font: normal 12px/22px 'simsun';
+}
+</style>
+</head>
+<body topmargin="0" onLoad="initializeUI()">
+<form name="theForm">
+  <table id="EffectBox" width="400" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td colspan="2"><input name="updataInfo" onClick="updateLocalAssets()" type="button" style="float:right; margin-right:20px;" value="更新↑"></td>
+    </tr>   
+    <tr>
+      <td width="134" align="right">代码集合：</td>
+      <td width="266"><label for="select"></label>
+        <select name="EffectName" onChange="effectChange()" id="select">
+          <option>asdf</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div  id="subBox">
+      <table width="400" border="0" cellspacing="0" cellpadding="0"> <tr>
+      <td width="134" align="right">
+      <label for="SubEffectName">子集：</label></td>
+       <td width="266"> <select name="SubEffectName" onChange="effectThumbChange(this.options[this.selectedIndex]['data-alias'])" id="SubEffectName">
+      </select>
+      </td></tr></table></div></td>
+    </tr>
+    <tr>
+      <td height="99" align="right" valign="top">效果预览：</td>
+      <td valign="top"><div id="EffefctImg"></div></td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">&nbsp;</td>
+      <td valign="top"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

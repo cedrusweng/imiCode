@@ -1,0 +1,42 @@
+<macromedia-extension
+	 name="xcarTopic"
+	 version="1.0.0"
+	 type="suite">
+
+	<author name="wengxuesong.xcar" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	爱卡汽车专用
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	专题效果扩展
+	]]>
+	</ui-access>	
+
+	<files>
+		<file source="xcarTopic.htm" destination="$Dreamweaver/configuration/Commands/" />
+		<file source="xcarTopic.js" destination="$Dreamweaver/configuration/Commands/" />
+		<file source="css/" destination="$Dreamweaver/configuration/xcarTopic/" />
+	</files>
+
+	<configuration-changes>				
+		<menu-insert insertAfter="DWMenu_Help">
+			<menu id="DWMenu_xcarTopic" name="_xcarTopic效果">
+			</menu>
+		</menu-insert>
+		<menu-insert appendTo="DWMenu_xcarTopic">
+			<menuitem id="DWMenu_xcarTopic_gallery" name="_Gallery" enabled="dw.getFocus(true) == 'textView' || dw.getFocus(true) == 'html'"  command="dw.runCommand('xcarTopic.htm', 'gallery')"/>
+			<menuitem id="DWMenu_xcarTopic_picScroll" name="_PicScroll" enabled="dw.getFocus(true) == 'textView' || dw.getFocus(true) == 'html'" command="dw.runCommand('xcarTopic.htm', 'picScroll')"/>
+			<menuitem id="DWMenu_xcarTopic_slopeScroll" name="_SlopeScroll" enabled="dw.getFocus(true) == 'textView' || dw.getFocus(true) == 'html'" command="dw.runCommand('xcarTopic.htm', 'slopeScroll')"/>
+			<menuitem id="DWMenu_xcarTopic_imageSlider" name="_ImageSlider" enabled="dw.getFocus(true) == 'textView' || dw.getFocus(true) == 'html'"  command="dw.runCommand('xcarTopic.htm', 'imageSlider')"/>
+		</menu-insert>
+	</configuration-changes>
+</macromedia-extension>

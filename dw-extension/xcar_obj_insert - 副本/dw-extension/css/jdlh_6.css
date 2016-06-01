@@ -1,0 +1,12 @@
+/*box395*/
+.box395{ width:395px; height:88px; background:#FFFFFF url(http://icon.xcar.com.cn/wxs/moban/images/pconlinef01.gif) no-repeat top center;}
+.box395 .pagination{width:100%;height:27px;line-height:27px;clear:both;}
+.box395 .pagination .subLineTab{width:100%;display:none;}
+.box395 .pagination a{width:99px;height:27px;display:inline;float:left; text-align:center; text-decoration:none;}
+.box395 .pagination a.own{width:98px;}
+.box395 .pagination a:hover,.box395 .pagination a.selected{color:#FFF; font-weight:bold;background: url(http://icon.xcar.com.cn/wxs/moban/images/pconlinef02.gif) no-repeat top left;/*标签选项被选样式*/}
+.box395 .pagination a.own:hover,.box395 .pagination a.own.selected{color:#FFF;background: url(http://icon.xcar.com.cn/wxs/moban/images/pconlinef02b.gif) no-repeat top left;/*标签选项被选样式*/}
+
+.box395 .contentdiv{text-align:center; padding-top:5px;}
+.box395 .contentdiv .bigTitle{color:#CC0000;font-family:黑体;font-size:20px;font-weight:300;line-height:30px; text-align:center;}
+.box395 .contentdiv .smallTitle{ padding-top:5px;}

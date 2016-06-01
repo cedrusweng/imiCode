@@ -1,0 +1,12 @@
+/*box300*/
+.box300{width:300px;border:1px solid #000;margin-bottom:5px;text-align:left;}
+.box300 .thead{height:24px;padding-left:5px;line-height:24px;background:#000; color:#FFF;}
+.box300 .thead a{color:#FFFFFF;}
+.box300 .thead .mark{float:left;font-weight:bold;}
+.box300 .thead .subMark{float:right;padding:0px 5px;}
+.box300 .pagination{height:25px;clear:both;background:#EBEBEB;}
+.box300 .pagination a{width:auto;height:25px;display:inline;float:left;text-align:center; padding:0px 5px;line-height:25px;}
+.box300 .pagination a:hover,.box300 .pagination a.selected{color:#F00;background:#FFF;/*标签选项被选样式*/}
+.box300 .contentdiv{padding:8px;}
+.box300 ul li{height:24px;line-height:24px;}
+.box300 ul li .iTitle a{padding-left:12px;}

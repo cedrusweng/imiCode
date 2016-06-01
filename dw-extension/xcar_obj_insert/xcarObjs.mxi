@@ -1,0 +1,35 @@
+<macromedia-extension
+	 name="xcar_insert_obj"
+	 version="1.0.0"
+	 type="suite">
+
+	<author name="wengxuesong.xcar" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	some about what dialog win
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	old effectors 
+	]]>
+	</ui-access>	
+
+	<files>		
+		<file source="Objects/xcarObjs.htm" destination="$Dreamweaver/configuration/Objects/Common/" />
+		<file source="commands/XcarEffectCommands.htm" destination="$Dreamweaver/configuration/commands/" />
+		<file source="commands/XcarEffectCommands.js" destination="$Dreamweaver/configuration/commands/" />		
+	</files>
+
+	<configuration-changes>				
+		<menu-insert insertBefore="DWMenu_Insert_Tag">
+			<menuitem  name="xcarObjectsInsert" file="Common/xcarObjs.htm" id="DW_xcar_Old"  enabled="(dw.getActiveWindow(true) != null && dw.getActiveWindow(true).allowsEdits()) && dw.getFocus() != 'browser' && dw.getDocumentDOM() != null && dw.getDocumentDOM().getParseMode() == 'html'" />
+		</menu-insert>		
+	</configuration-changes>
+</macromedia-extension>

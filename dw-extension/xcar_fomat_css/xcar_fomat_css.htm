@@ -1,0 +1,24 @@
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<head>
+<!-- Copyright 2001-2006 Adobe Macromedia Software LLC and its licensors. All rights reserved. -->
+<title>xcarTopic</title>
+<script src="fomat-css/js/options/options.combine.js"></script>
+<script src="fomat-css/js/ast-to-css.js"></script>
+<script src="fomat-css/js/css-to-ast.js"></script>
+<script src="fomat-css/js/js-cssStyle-so.js"></script>
+<script src="xcar_fomat_css.js"></script>
+<script>
+function receiveArguments(name){//接收参数
+	if(name=='css'){
+		var dom=dw.getDocumentDOM();
+		alert(dom.getElementsByTagName('style')[0].innerHTML)
+		return true;		
+	}
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

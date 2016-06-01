@@ -1,0 +1,37 @@
+/**************************************************************
+
+	Image Slider
+	v 1.0
+
+**************************************************************/
+
+
+.imageMenu {position: relative;width: 955px;height: 280px;overflow: hidden;}
+
+.imageMenu ul {list-style: none;margin: 0px;display: block;height: 280px;width: 1500px;}
+
+.imageMenu ul li {float: left;}
+
+/**图片开始时的距离**/
+.imageMenu ul li a {
+	text-indent: -1000px;
+	background:#FFFFFF none repeat scroll 0%;
+	border-right: 1px solid #000000;
+	cursor:pointer;
+	display:block;
+	overflow:hidden;
+	width:248px;
+	height:280px;
+}
+
+.imageMenu ul li.banner01 a {background: url(http://icon.xcar.com.cn/wxs/xcarTopic/imageSlider/images/banner01.jpg) repeat scroll 0%;}
+
+.imageMenu ul li.banner02 a {background: url(http://icon.xcar.com.cn/wxs/xcarTopic/imageSlider/images/banner02.jpg) repeat scroll 0%;}
+
+.imageMenu ul li.banner03 a {background: url(http://icon.xcar.com.cn/wxs/xcarTopic/imageSlider/images/banner03.jpg) repeat scroll 0%;}
+
+.imageMenu ul li.banner04 a {background: url(http://icon.xcar.com.cn/wxs/xcarTopic/imageSlider/images/banner04.jpg) repeat scroll 0%; width:750px;}
+
+.clear {clear: both;}
+
+

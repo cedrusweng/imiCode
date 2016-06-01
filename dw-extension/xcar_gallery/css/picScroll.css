@@ -1,0 +1,11 @@
+.scrollPic4{ width:848px;height:156px; overflow:hidden;}
+.scrollPic4 .prebtn{width:40px;height:90px;float:left;background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnl.gif) no-repeat; margin-top:11px; cursor:pointer;}
+.scrollPic4 .nexbtn {width:40px;height:90px;float:left;background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnr.gif) no-repeat; margin-top:11px; cursor:pointer; margin-left:8px;}
+.scrollPic4 .prebtn:hover {background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnl.gif) no-repeat -40px 0;}
+.scrollPic4 .nexbtn:hover {background:url(http://icon.xcar.com.cn/zhoulei/code/images/pic_gmbtnr.gif) no-repeat -40px 0;}
+.scrollDiv4{float:left; width:750px;height:152px; margin-left:8px; overflow:hidden;}
+.scrollDiv4 ul{float:left;}
+.scrollDiv4 ul li{ float:left; width:171px; padding:0 8px;height:156px; text-align:center;}
+.scrollDiv4 ul li a { display:block; width:169px; height:127px; padding:1px; margin-bottom:4px;}
+.scrollDiv4 ul li a:hover {display:block;width:169px; height:127px;padding:1px; background:#9a7638; margin-bottom:4px;}
+

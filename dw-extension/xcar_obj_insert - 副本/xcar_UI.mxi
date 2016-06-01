@@ -1,0 +1,35 @@
+<macromedia-extension
+	 name="xcar_UI"
+	 version="1.0.0"
+	 type="suite">
+
+	<author name="wengxuesong.xcar" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	some about what dialog win
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	old effectors 
+	]]>
+	</ui-access>	
+
+	<files>		
+		<file source="Objects/xcar_UI.htm" destination="$Dreamweaver/configuration/Objects/Common/" />
+		<file source="commands/XcarUICommands.htm" destination="$Dreamweaver/configuration/commands/" />
+		<file source="commands/XcarUICommands.js" destination="$Dreamweaver/configuration/commands/" />		
+	</files>
+
+	<configuration-changes>				
+		<menu-insert insertBefore="DWMenu_Insert_Tag">
+			<menuitem  name="xcar_UI" file="Common/xcar_UI.htm" id="DW_xcar_UI"  enabled="(dw.getActiveWindow(true) != null && dw.getActiveWindow(true).allowsEdits()) && dw.getFocus() != 'browser' && dw.getDocumentDOM() != null && dw.getDocumentDOM().getParseMode() == 'html'" />
+		</menu-insert>		
+	</configuration-changes>
+</macromedia-extension>

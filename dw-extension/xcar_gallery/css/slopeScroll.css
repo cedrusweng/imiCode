@@ -1,0 +1,56 @@
+.pic_wrap{ 
+	position:relative; 
+	width:650px; 
+	height:320px; 
+	overflow:hidden;
+}
+.pic_wrap img{
+	vertical-align: top;
+}
+.pic_container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:649px;
+	height: 100%;
+	overflow: hidden;		
+}
+.pic_main{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.pic_left,
+.pic_right{
+	display: block;
+	position: absolute;
+	width: 150px;
+	height: 320px;
+	top:0;
+}
+.pic_left{
+	background: url(http://icon.xcar.com.cn/wxs/xcarTopic/picScroll/images/pic_arr_l.png) no-repeat;
+	left: 0;
+}
+.pic_right{
+	background: url(http://icon.xcar.com.cn/wxs/xcarTopic/picScroll/images/pic_arr_r.png) no-repeat;
+	right: 0;
+}
+
+/* 相反方向使用下面样式 */
+.pic_left_reverse,
+.pic_right_reverse{
+	display: block;
+	position: absolute;
+	width: 150px;
+	height: 320px;
+	top:0;
+}
+.pic_left_reverse{
+	background: url(http://icon.xcar.com.cn/wxs/xcarTopic/picScroll/images/pic_arr_l_reverse.png) no-repeat;
+	left: 0;
+}
+.pic_right_reverse{
+	background: url(http://icon.xcar.com.cn/wxs/xcarTopic/picScroll/images/pic_arr_r_reverse.png) no-repeat;
+	right: 0;
+}	

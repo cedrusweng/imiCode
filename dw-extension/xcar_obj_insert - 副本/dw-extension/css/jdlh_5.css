@@ -1,0 +1,8 @@
+/*box355b*/
+.box355b{ width:355px;border:1px #000 solid; position:relative;}
+.box355b .pagination{width:100%;height:16px;clear:both;position:absolute;top:143px;right:0px;_right:-1px;}
+.box355b .pagination .subLineTab{width:100%;display:block;height:1px;font-size:1px;background:#FFF;overflow:hidden;filter:progid:DXImageTransform.Microsoft.Alpha(startX=0, startY=0, finishX=50, finishY=100,style=1,opacity=0,finishOpacity=100)}
+.box355b .pagination .subPageTab{ float:right}
+.box355b .pagination a{width:auto;display:inline;float:left;border-left:1px #FFF solid;color:#FFFFFF;background:#000;text-align:center;padding:2px 8px 0px 8px;line-height:14px;filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;text-decoration:none;font-weight:bold;}
+.box355b .pagination a:hover,.box355b .pagination a.selected{color:#FFF;background:#FF6600; /*标签选项被选样式*/}
+.box355b .dTitle{ font-weight:bold; line-height:26px; text-align:center;}

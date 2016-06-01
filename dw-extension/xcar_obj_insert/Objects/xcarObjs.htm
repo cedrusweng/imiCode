@@ -1,0 +1,29 @@
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<head>
+<title>xcarObjectsInsert</title>
+<!-- Copyright 2001-2006 Adobe Macromedia Software LLC and its licensors. All rights reserved. -->
+<script>
+function isDOMRequired() {
+	return false;
+}
+
+function objectTag(){
+  // We're keeping this a separate command, as we want to use the
+  // "buttons at the bottom" style.
+  var cmdFile = dreamweaver.getConfigurationPath() + "/Commands/XcarEffectCommands.htm";
+  var cmdDOM = dreamweaver.getDocumentDOM(cmdFile);
+  if ( dw.getShowDialogsOnInsert()){
+     dreamweaver.popupCommand("XcarEffectCommands.htm");
+  } else {
+     cmdDOM.parentWindow.initializeUI();
+     cmdDOM.parentWindow.setEffectStr();
+  }
+  return (cmdDOM.parentWindow.createEffectStr());	
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

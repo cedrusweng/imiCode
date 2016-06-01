@@ -1,0 +1,6 @@
+/*box390*/
+.box390{ width:390px;border:1px #000 solid; position:relative;}
+.box390 .pagination{width:65px;height:45px;clear:both;position:absolute;top:0px; right:2px;_right:2px;}
+.box390 .pagination a{display:inline; float:left;text-align:center;width:60px;height:45px;border:1px #FFF dotted;margin-top:5px;}
+.box390 .pagination a:hover,.box390 .pagination a.selected{border:1px #FFF solid;/*标签选项被选样式*/}
+.box390 .dTitle{ font-weight:bold;line-height:28px;text-align:center;}
