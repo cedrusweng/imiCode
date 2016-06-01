@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://icon.xcar.com.cn/wxs/moban/js/jquery.min.js" ></script>
+<style>
+*{ margin:0; padding: 0;}
+
+.data_table_view{
+	position: relative;
+	width: 955px;
+	height:200px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.data_table{
+	position:relative;
+	width: 100000px;
+	height: 150px;
+}
+.column{
+	display: inline;
+	width: 100px;
+	height: 150px;
+	float: left;
+	cursor: pointer;
+	background: #ccc;
+}
+.column:nth-child(even){
+	background: #f00;
+}
+.big_img_view{
+	width: 200px;
+	height: 150px;
+	border: solid 2px #000;
+	border-radius: 15px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left:-100px;
+	text-align: center;
+	opacity:.9;
+}
+</style>
+
+</head>
+
+<body>
+<div class="data_table_view">
+    <div class="data_table">
+        <div class="column"><img src="s1.jpg" width="100" height="150" /></div>
+        <div class="column"><img src="s2.jpg" width="100" height="150" /></div>
+        <div class="column">3</div>
+        <div class="column">4</div>
+        <div class="column">5</div>
+        <div class="column">6</div>
+        <div class="column">7</div>
+        <div class="column">8</div>
+        <div class="column">9</div>
+        <div class="column">10</div>
+        <div class="column">11</div>
+        <div class="column">12</div>
+        <div class="column">13</div>
+        <div class="column">14</div>
+        <div class="column">15</div>
+        <div class="column">16</div>
+        <div class="column">17</div>
+    </div>
+	<div class="big_img_view">
+	
+	</div>
+</div>
+
+<script>
+$(function(){
+	var view=$(".big_img_view");
+	var colWidth=$(".column").width();
+	var viewLeft=view.offset().left-$(".data_table_view").offset().left;
+	var viewWidth=view.width();
+	var currentIndex=$(".column").size();
+	init();
+	//初始化
+	function init(){		
+		$(".column").each(function(i){
+			$(this).css({
+				position:"absolute",
+				left:colWidth*i,
+				top:0
+			}).click(function(){
+				goto(i);
+			})
+		})
+		goto(7);
+	}
+	//定位到对应的块
+	function goto(idx){
+		var target=$(".column").eq(idx);
+		var targetVal=parseInt(target.css('left'));
+		var current=$(".column").eq(currentIndex);
+		
+		if(currentIndex<idx){
+			//点击右侧时重置当前的位置			
+			$(".data_table").animate({left:viewLeft-targetVal+viewWidth-colWidth},function(){
+				view.html(target.html());	
+				currentIndex=idx;
+			});
+		}else{
+			//点击左侧时重量当前位置的东西
+			
+			//点大图左侧 click left of view box,execute follow code;
+			$(".data_table").animate({left:viewLeft-targetVal},function(){
+				view.html(target.html());	
+				currentIndex=idx;
+			});
+		}
+		
+		
+		$(".column").each(function(i){
+			if(i>idx){
+				$(this).animate({
+					left:colWidth*i+viewWidth-colWidth
+				})
+			}else if(i<idx){
+				$(this).animate({				
+					left:colWidth*i
+				})	
+			}
+		})	
+	}
+	
+
+
+
+
+
+})
+</script>
+</body>
+</html>
